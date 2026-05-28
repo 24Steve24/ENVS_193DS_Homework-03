@@ -50,7 +50,7 @@ ggplot(data = kelp,
 
 c. Check your Assumptions and Run your Test
 
-Check Linearity
+###Check Linearity
 ```{r}
 #|label: Visualizating Relationship between Variables
 # base layer ggplot
@@ -71,6 +71,7 @@ ggplot(data = kelp,
   theme_classic()
 ```
 
+###Check Normality of Temperature 
 ```{r}
 #| Label: QQ-Plot for Temperature
 # base layer: ggplot
@@ -87,6 +88,7 @@ theme(legend.position = "none")+
 theme_minimal()
 ```
 
+###Check Normality of Kelp Elongation Rate
 ```{r}
 #| label: QQ-Plot for Kelp Elongation Rate 
 # base layer: ggplot
@@ -106,8 +108,36 @@ theme_minimal()
 
 To determine whether to use Pearson's or Spearman Rank Correlation I had to check whether these variables had a linear or monotonic relationship and whether these variables have a normal distribution. I checked the general relationship between the two variables by creating a scatter plot, and based on initial gut check and the visual trend kelp elongation rate decreasing as temperature increases I concluded the relationship was linear. Additionally, to check that both these variables have normal distributions I create individual qq plots, and since both plots follow the generated diagonal line I concluded the distributions of temperature and kelp elongation rate were normal.
 
+```{r}
+#| label: Pearsons Correlation
 
+cor.test(kelp$kelp_elong, # kelp elongation rat as first variable
+         kelp$temp_c, # temperature as second variable
+         method="pearson") # specify Pearson's correlation
+```
 
+d. Results Communication
 
+To evaluate the strength of the relationship between temperature and giant kelp frond elongation rate, I used the Pearson's correlation test. I utilized this test because there was a seemingly linear relationship between the two variables, both variables are continous measurements with normal distributions, and there observations are independent. We found a strong negative relationship between temperature and giant kelp frond elongation rate (Pearson's r = -0.69, t(30) = -5.19, p << 0.001, $\alpha$ = 0,.05).
+
+e. Test Implications
+
+Our analysis found a strong negative relationship between ocean temperature (\u00B0C) and giant kelp frond elongation rate (cm^2^/day). This suggests that as ocean temperatures rise the rate of giant kelp frond growth decreases drastically, and while other factors might impact growth rates this strong correlation indicates that there will be miniscule impacts. In order to maximize kelp growth and general health we should aim to grow giant kelp in colder waters and to ensure the longevity of their health we must take actions to mitigate ocean temperature rising.
+
+f. Double Check your own Work
+
+```{r}
+#| Label: Running alternative test
+#| warnings: FALSE
+
+# start correlation test
+cor.test(kelp$temp_c, # set first variable to temperature
+         kelp$kelp_elong, # set second variable to kelp elongation
+         method = "spearman") # specify Spearman's Rank Correlation
+```
+
+The Spearman's Rank Correlation test would have yielded the same results as the Pearson's Correlation test. This would have lead me to makking the same decision regarding the null hypothesis, which would be to reject the null hypothesis because the variables temperature (\u00B0C) and kelp elongation rate (cm^2^/day) are related. We found a strong negative relationship between ocean temperature (\u00B0C) and kelp elongation rate (cm^2^/day)(Spearman $\rho$ = -0.69, S = 9216, p >> 0.01, $\alpha$ = 0.05)
+
+# Problem 2. Personal Data
 
 
