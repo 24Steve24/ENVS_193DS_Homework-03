@@ -48,6 +48,64 @@ ggplot(data = kelp,
   theme_classic()
 ```
 
+c. Check your Assumptions and Run your Test
+
+Check Linearity
+```{r}
+#|label: Visualizating Relationship between Variables
+# base layer ggplot
+ggplot(data = kelp,
+       # assign x and y values
+       mapping = aes(x = temp_c,
+                     y = kelp_elong)) +
+  # second layer: geom_point
+  geom_point(
+    # change color of points
+    color = "darkblue", 
+    # change shape and size of points
+    alpha = 0.5, size = 3, shape = 20) +
+  # label x- and y-axes
+  labs(x = "Temperature (\u00B0C)",
+       y = "Kelp Elongation Rate (cm/day)") +
+  # change theme of plot
+  theme_classic()
+```
+
+```{r}
+#| Label: QQ-Plot for Temperature
+# base layer: ggplot
+ggplot(data = kelp,
+       # set sample to temperature
+       aes(sample = temp_c)) +
+# first layer: qq plot
+geom_qq(color = "blue")+
+# second layer qq line
+geom_qq_line(color = "blue") +
+# remove legend
+theme(legend.position = "none")+
+# change theme of plot
+theme_minimal()
+```
+
+```{r}
+#| label: QQ-Plot for Kelp Elongation Rate 
+# base layer: ggplot
+ggplot(data = kelp,
+       # set sample to kelp elongation rate
+       aes(sample = kelp_elong)) +
+# first layer: qq plot
+geom_qq(color = "blue")+
+# second layer qq line
+geom_qq_line(color = "blue") +
+# remove legend
+theme(legend.position = "none")+
+# change theme of plot
+theme_minimal()
+```
+
+
+To determine whether to use Pearson's or Spearman Rank Correlation I had to check whether these variables had a linear or monotonic relationship and whether these variables have a normal distribution. I checked the general relationship between the two variables by creating a scatter plot, and based on initial gut check and the visual trend kelp elongation rate decreasing as temperature increases I concluded the relationship was linear. Additionally, to check that both these variables have normal distributions I create individual qq plots, and since both plots follow the generated diagonal line I concluded the distributions of temperature and kelp elongation rate were normal.
+
 
 
 
