@@ -1,0 +1,55 @@
+---
+title: "Homework_03"
+author: "Stephen Bond"
+date: "05/28/2026"
+format: pdf
+---
+
+```{r}
+#| label: Set Up
+#| message: False
+# read in tidyverse package
+library(tidyverse)
+# read in here package
+library(here)
+# read in janitor package
+library(janitor)
+# read in readxl package
+library(readxl)
+# read in and make kelp data an object
+kelp <- read_csv(here("data", "temp-kelp.csv"))
+```
+
+# Problem 1. Giant kelp fronds
+
+a. An Appropriate Test
+
+The two appropriate tests that can be run to determine the strength of the relationship between temperature and giant kelp frond elongation rate are Pearson's correlation and Spearman rank correlation because they both answer the question of how two variables are related together and provide information on direction and strength of this relationship. Pearson's correlation test is a parametric version of a correlation test and it assumes that there is a linear relationship between variables, variables are continous, variables are normally distributed, and there are independent observations. On the other hand, Spearman rank correlation is the non-parametric version of this test that assumes a monotonic relationship between variables and that observations are independent.
+
+b. Create a Visualization
+
+```{r}
+#|label: Visualizating Relationship between Variables
+# base layer ggplot
+ggplot(data = kelp,
+       # assign x and y values
+       mapping = aes(x = temp_c,
+                     y = kelp_elong)) +
+  # second layer: geom_point
+  geom_point(
+    # change color of points
+    color = "darkblue", 
+    # change shape and size of points
+    alpha = 0.5, size = 3, shape = 20) +
+  # label x- and y-axes
+  labs(x = "Temperature (\u00B0C)",
+       y = "Kelp Elongation Rate (cm/day)") +
+  # change theme of plot
+  theme_classic()
+```
+
+
+
+
+
+
