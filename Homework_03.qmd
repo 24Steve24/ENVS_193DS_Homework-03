@@ -259,4 +259,8 @@ ggplot(data = cooking_clean,
         panel.background = element_blank())
 ```
 
+b. Captions
 
+***Figure 1. Frequencies of Cooking Location based on Day of the Week.*** Histogram demonstrates the count data of where I cook dinner (Pink: Cooked at Home, Black: Ate Out) based on the day of the week. Larger pink bars on certain days indicate I cook at home those days more frequently, whereas, larger black bars indicate I eat out more frequently on those days. Data originally from: Stephen Bond. 2026. ENVS 193 DS Personal Data. Data accessed 2026-05-28.
+
+***Figure 2. Probability of Cooking Dinner at Home decreases as hours worked increases.*** Red data points represent days where I cooked dinner at home (1) and blue data points represent days where I ate dinner out (0). These points also demonstrate the hours I worked that day. The black line represents a logistic regression model fit to predict probabilities based on the data. Data originally from: Stephen Bond. 2026. ENVS 193 DS Personal Data. Data accessed 2026-05-28.
