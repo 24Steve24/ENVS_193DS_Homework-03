@@ -16,8 +16,12 @@ library(here)
 library(janitor)
 # read in readxl package
 library(readxl)
+# read in ggeffects package
+library(ggeffects)
 # read in and make kelp data an object
 kelp <- read_csv(here("data", "temp-kelp.csv"))
+# read in and make personal data an object
+dinner <- read_csv(here("data","Personal_Data - Sheet1.csv"))
 ```
 
 # Problem 1. Giant kelp fronds
@@ -139,5 +143,120 @@ cor.test(kelp$temp_c, # set first variable to temperature
 The Spearman's Rank Correlation test would have yielded the same results as the Pearson's Correlation test. This would have lead me to makking the same decision regarding the null hypothesis, which would be to reject the null hypothesis because the variables temperature (\u00B0C) and kelp elongation rate (cm^2^/day) are related. We found a strong negative relationship between ocean temperature (\u00B0C) and kelp elongation rate (cm^2^/day)(Spearman $\rho$ = -0.69, S = 9216, p >> 0.01, $\alpha$ = 0.05)
 
 # Problem 2. Personal Data
+
+```{r}
+#| label: Cleaning Data
+# store dinner data as cooking_clean
+cooking_clean <- dinner |>
+  # clean names, making lowercase and underscore
+  clean_names() |>
+  # making order of days
+  mutate(day_of_the_week_sun_mon_tues_wed_thur_fri_sat = 
+           as_factor(day_of_the_week_sun_mon_tues_wed_thur_fri_sat),
+         day_of_the_week_sun_mon_tues_wed_thur_fri_sat = 
+           fct_relevel(day_of_the_week_sun_mon_tues_wed_thur_fri_sat,
+                       "Sunday",
+                       "Monday",
+                       "Tuesday",
+                       "Wednesday",
+                       "Thursday",
+                       "Friday",
+                       "Saturday")) |>
+  # name treatments
+  mutate(cooked_at_home_y_n = as.numeric(case_when(
+    # mutate yes to "1"
+    cooked_at_home_y_n == "Yes" ~ "1",
+    # mutate "No" into "0"
+    cooked_at_home_y_n == "No" ~ "0")))
+```
+
+```{r}
+#| label: Where I Cook Based on Day of the Week
+# base layer: ggplot
+ggplot(data = cooking_clean,
+       # day of the week on the x-axis, binary cooked at home data on the y-axis)
+       mapping = aes(x = day_of_the_week_sun_mon_tues_wed_thur_fri_sat,
+                     fill = as.factor(cooked_at_home_y_n),
+                     # color by whether I cooked at home or not
+                     color = as.factor(cooked_at_home_y_n))) +
+  # first layer: Bar graph
+  geom_bar() +
+  # relabelling x- and y-axes
+  labs(x = "Day of the Week",
+       y = "Count",
+       # add title
+       title = "Home Cooked Dinner Depending on Day of the Week",
+       # add subtitle
+       subtitle = "2026-05-28") +
+  # manually change colors
+  scale_color_manual(values = c("1"= "pink",
+                                "0" = "black"),
+                     guide = "none") +
+  scale_fill_manual(values = c("1" = "pink",
+                               "0" = "black" ),
+                    labels = c("0" = "Ate Out",
+                               "1" = "Cooked at Home"),
+                    name = "Where I had Dinner") +
+   # change theme from default
+   theme_minimal() +
+  # readjust days of the week for visibility
+  theme(axis.text.x = element_text(angle = 45, hjust =1))+
+  # cleaning grid lines and background
+  theme(panel.grid = element_blank(),
+        panel.background = element_blank())
+```
+
+```{r}
+# creating model for cooking_clean data
+cooking_model <- glm(cooked_at_home_y_n ~ time_worked_hours,
+             data = cooking_clean,
+             family = "binomial")
+# creating new object called cooking_preds
+cooking_preds <- ggpredict(
+  cooking_model, # model object
+  terms = "time_worked_hours" # predictor time worked
+)
+```
+
+```{r}
+#| label: Cooking at Home based on Hours Worked
+# base layer: ggplot
+ggplot(data = cooking_clean,
+       # hours worked on the x-axis, binary cooked at home data on the y-axis
+       # coloring by treatment
+       mapping = aes( x = time_worked_hours,
+                      y = cooked_at_home_y_n,
+                      color = as.factor(cooked_at_home_y_n))) +
+  # relabelling x- and y-axes
+  labs(x = "Time Worked (Hours)",
+       y = "Cooked at Home Y=1, N=0",
+       # add color based on where dinner was cooked
+       color = "cooked_at_home_y_n",
+       # add title
+       title = "Relationship between Hours Worked and my Cooking Habits",
+       # add subtitle
+       subtitle = "2026-05-28") +
+  # manually change colors
+  scale_color_manual(values = c("1" = "firebrick",
+                                "0" = "darkblue" )) +
+  # change theme from default
+  theme_minimal()+
+  # removing legend
+  theme(legend.position = "none") +
+  # second layer: jitter points horizontally
+  geom_jitter(shape = 21, width = 0.25, height = 0) +
+  # third layer: line representing mdoel prediction
+  # using prediction data grame
+  geom_line(data = cooking_preds,
+            # set axis values
+            aes(x = x,
+                y = predicted),
+            # alter line width
+            linewidth = 1,
+            inherit.aes = FALSE) +
+  # cleaning grid lines and background
+  theme(panel.grid = element_blank(),
+        panel.background = element_blank())
+```
 
 
