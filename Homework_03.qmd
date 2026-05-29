@@ -270,3 +270,37 @@ b. Captions
 a. For my personal data's affective visualization, I thought it would be interesting to make a calander of sorts with each day corresponding to a plate. The items on the plate, either a home cooked meal or a take out bag, would indicate whether I cooked at home or ate out that day. Additionally, the number of cracks in the plate indicate how many hours I worked. This would effectively hit the verteces of data visualization because it clearly identifies the relationship between hours worked and where I get dinner from (exploratory), the plate design is creative and unique to the data set(affective), and the calander lay out clearly and effectively communicates my findings to my audience similar to Posavec and Lupi's Dear Data project (communicative)
 
 b. 
+![Visualization](draft_visualization.png){width=100%}
+
+c. 
+
+![One Week Example Draft Visualization made on Canva](Real_Draft.png){width=100%}
+
+d. 
+
+My visualization demonstrates a calendar with each day depicting a plate of either a home cooked meal or a take out order, representing wether my dinner was made at home or if I ate out. Additionally, the cracks represent how many hours I worked that day, symbolizing the stress that working too much causes.
+
+I took a lot of inspiration from Posavec and Lupi's Dear Data project as I found it very interesting how small drawn objects can represent individual data points with so much detail. Additionally, the calendar layout reminded me of elementary school planners and school lunch menus, so  that general art style of cartoonish figures inspired the way I drew the food and take out.
+
+The form of my work is colored pencils on paper, but I may be interested in making it more of a collage style from construction paper to further encapsulate the child like style.
+
+I first sketched an entire calendar with pencil on regular paper. After understanding the general layout I desired, I utilized a ruler to jot out a week and sketched the plates and food items. Finally I colored in menu item and plate.
+
+e.
+[View Slideshow](https://docs.google.com/presentation/d/1sPVL6iaVUKJ2s4fK3y-5yzC34w4-uaQXPPcJTyA8E6g/edit?usp=sharing)
+
+# Problem 4. Statistical Critique
+
+a. Revisit and Summarize
+
+The author utilizes a Wilcoxon signed-rank test to answer the primary research question "Does wildflower meadow introduction increase biodiversity levels as opposed to conventional lawns?" As shown in the table there are multiple response variables like plant mean richness, plant mean abundance, pitfall mean richness, pitfall mean abundance, sweep mean richness, mean invertebrate biomass, nematode generic mean richness, nematode mean abundance, bat mean richness, and bat mean abundance. There is one predictor variable and that is lawn type, either meadow or conventional lawn.
+
+![Wilcoxon Signed-Rank Test Table Results](Critique_Table.png){width=100%}
+
+
+
+
+
+
+
+
