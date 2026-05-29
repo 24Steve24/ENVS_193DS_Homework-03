@@ -264,3 +264,9 @@ b. Captions
 ***Figure 1. Frequencies of Cooking Location based on Day of the Week.*** Histogram demonstrates the count data of where I cook dinner (Pink: Cooked at Home, Black: Ate Out) based on the day of the week. Larger pink bars on certain days indicate I cook at home those days more frequently, whereas, larger black bars indicate I eat out more frequently on those days. Data originally from: Stephen Bond. 2026. ENVS 193 DS Personal Data. Data accessed 2026-05-28.
 
 ***Figure 2. Probability of Cooking Dinner at Home decreases as hours worked increases.*** Red data points represent days where I cooked dinner at home (1) and blue data points represent days where I ate dinner out (0). These points also demonstrate the hours I worked that day. The black line represents a logistic regression model fit to predict probabilities based on the data. Data originally from: Stephen Bond. 2026. ENVS 193 DS Personal Data. Data accessed 2026-05-28.
+
+# Problem 3. Affective Visualization
+
+a. For my personal data's affective visualization, I thought it would be interesting to make a calander of sorts with each day corresponding to a plate. The items on the plate, either a home cooked meal or a take out bag, would indicate whether I cooked at home or ate out that day. Additionally, the number of cracks in the plate indicate how many hours I worked. This would effectively hit the verteces of data visualization because it clearly identifies the relationship between hours worked and where I get dinner from (exploratory), the plate design is creative and unique to the data set(affective), and the calander lay out clearly and effectively communicates my findings to my audience similar to Posavec and Lupi's Dear Data project (communicative)
+
+b. 
