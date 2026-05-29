@@ -144,6 +144,8 @@ The Spearman's Rank Correlation test would have yielded the same results as the 
 
 # Problem 2. Personal Data
 
+a. Updating your Visualizations
+
 ```{r}
 #| label: Cleaning Data
 # store dinner data as cooking_clean
@@ -267,16 +269,19 @@ b. Captions
 
 # Problem 3. Affective Visualization
 
-a. For my personal data's affective visualization, I thought it would be interesting to make a calander of sorts with each day corresponding to a plate. The items on the plate, either a home cooked meal or a take out bag, would indicate whether I cooked at home or ate out that day. Additionally, the number of cracks in the plate indicate how many hours I worked. This would effectively hit the verteces of data visualization because it clearly identifies the relationship between hours worked and where I get dinner from (exploratory), the plate design is creative and unique to the data set(affective), and the calander lay out clearly and effectively communicates my findings to my audience similar to Posavec and Lupi's Dear Data project (communicative)
+a. Describe in Words what an Affective Visual could look like for your Personal Data
 
-b. 
+For my personal data's affective visualization, I thought it would be interesting to make a calander of sorts with each day corresponding to a plate. The items on the plate, either a home cooked meal or a take out bag, would indicate whether I cooked at home or ate out that day. Additionally, the number of cracks in the plate indicate how many hours I worked. This would effectively hit the verteces of data visualization because it clearly identifies the relationship between hours worked and where I get dinner from (exploratory), the plate design is creative and unique to the data set(affective), and the calander lay out clearly and effectively communicates my findings to my audience similar to Posavec and Lupi's Dear Data project (communicative)
+
+b. Create a Sketch (on Paper) of your Idea
+
 ![Visualization](draft_visualization.png){width=100%}
 
-c. 
+c. Make a Draft of your Visualization
 
-![One Week Example Draft Visualization made on Canva](Real_Draft.png){width=100%}
+![Draft Visualization One Week](Draft_Visualization_Food){width=100%}
 
-d. 
+d. Write an Artist Statement
 
 My visualization demonstrates a calendar with each day depicting a plate of either a home cooked meal or a take out order, representing wether my dinner was made at home or if I ate out. Additionally, the cracks represent how many hours I worked that day, symbolizing the stress that working too much causes.
 
@@ -286,7 +291,8 @@ The form of my work is colored pencils on paper, but I may be interested in maki
 
 I first sketched an entire calendar with pencil on regular paper. After understanding the general layout I desired, I utilized a ruler to jot out a week and sketched the plates and food items. Finally I colored in menu item and plate.
 
-e.
+e. Prep you Materials to Share in Class
+
 [View Slideshow](https://docs.google.com/presentation/d/1sPVL6iaVUKJ2s4fK3y-5yzC34w4-uaQXPPcJTyA8E6g/edit?usp=sharing)
 
 # Problem 4. Statistical Critique
@@ -296,6 +302,19 @@ a. Revisit and Summarize
 The author utilizes a Wilcoxon signed-rank test to answer the primary research question "Does wildflower meadow introduction increase biodiversity levels as opposed to conventional lawns?" As shown in the table there are multiple response variables like plant mean richness, plant mean abundance, pitfall mean richness, pitfall mean abundance, sweep mean richness, mean invertebrate biomass, nematode generic mean richness, nematode mean abundance, bat mean richness, and bat mean abundance. There is one predictor variable and that is lawn type, either meadow or conventional lawn.
 
 ![Wilcoxon Signed-Rank Test Table Results](Critique_Table.png){width=100%}
+
+b. Visual Clarity
+
+The table represents the data underlying tests fairly clear because the format easily identifies the response variables and biodiversity levels from the meadow, the baseline meadow, and the commercial lawn. Additionally, the change ratio cf baseline columns effectively demonstrate the test results to the Wilcoxon Signed-Ranked test, as seen by the W statistic value and the p-value, allowing the audience to determine the significance for themselves. Additionally, while it is helpful to see the raw data if you just wanted to understand the Wilcoxon results it might be difficult deciphering what is data and what are test results.
+
+c. Aesthetic Clarity
+
+As stated previously, the author handles "visual clutter" fairly well; however, since the table mixes data and test results it can be a little overwhelming for readers at a first glance. Additionally, the presence of N/A values do draw your attention in a negative way since the letter stand out amongst the numerical data. One aspect that helps the author handle visual clutter is the use of asterisks to draw focus to test results that were found to be significant changes, helping the audience navigate the clutter on the table. When examining the data to ink ratio, there seems to be a lot of ink for background colors compared to very little data but this does help when the alternating grey and white stripes break up different response variables.
+
+d. Recommendations
+
+One recommendation that I think would help represent the data and remove clutter is removing the N/A values and having blank celss, as to limit unecessary distractions from the raw data and the significant test results. Additionally, I would recommend breaking up the Change ratio cf baseline, the W statistic, and p-value into three seperate columns as to help the reader distinguish the three values rather then having them squeezed into one cell. I think this would also draw attention to the significant test results, since there is less clutter around them. 
+
 
 
 
